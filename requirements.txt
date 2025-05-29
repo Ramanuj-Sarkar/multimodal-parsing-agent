@@ -1,0 +1,8 @@
+openai
+whisper
+pytesseract
+Pillow
+langchain
+streamlit
+transformers
+faiss-cpu
