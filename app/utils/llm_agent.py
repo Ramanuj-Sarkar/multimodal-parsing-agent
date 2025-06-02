@@ -1,1 +1,4 @@
 # LLM reasoning functions using GPT-4 or LangChain
+
+import langchain
+import faiss
