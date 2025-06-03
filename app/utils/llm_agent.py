@@ -1,7 +1,6 @@
 # LLM reasoning functions using GPT-4 or LangChain
 
 from langchain_openai import ChatOpenAI
-from langchain.agents import initialize_agent, Tool
 import image_processing, voice_processing
 
 text = image_processing.read_image("doritos_label.png")
