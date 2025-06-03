@@ -2,9 +2,12 @@
 
 import whisper
 
-model = whisper.load_model("base")
-result = model.transcribe("voice_memo.m4a")
-voice_command = result["text"]
+
+def process_file(filename):
+    model = whisper.load_model("base")
+    result = model.transcribe(filename, fp16=False)
+    return result["text"]
+
 
 if __name__ == '__main__':
-    print(voice_command)
+    print(process_file("voice_memo.m4a"))
