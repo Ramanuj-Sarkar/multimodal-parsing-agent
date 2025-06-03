@@ -9,9 +9,12 @@ from PIL import Image
 # https://stackoverflow.com/questions/50951955/pytesseract-tesseractnotfound-error-tesseract-is-not-installed-or-its-not-i
 pytesseract.pytesseract.tesseract_cmd = '/opt/homebrew/bin/tesseract'
 
+
 # get image and stuff
-image = Image.open("doritos_label.png")
-text = pytesseract.image_to_string(image)
+def read_image(filename):
+    image = Image.open(filename)
+    return pytesseract.image_to_string(image)
+
 
 if __name__ == '__main__':
-    print(text)
+    print(read_image("doritos_label.png"))
