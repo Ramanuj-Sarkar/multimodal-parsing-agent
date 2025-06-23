@@ -5,7 +5,6 @@ import image_processing, voice_processing
 
 text = image_processing.read_image("doritos_label.png")
 voice_command = voice_processing.process_file("voice_memo.m4a")
-user_input = 'Is this gluten-free?'
 
 hidden_key = input("Input the openai key:")
 
@@ -15,7 +14,7 @@ prompt = f"""
 Here is the text of a product label:
 {text}
 
-The user asked: "{user_input}"
+The user asked: "{voice_command}"
 
 Based on their question, determine if the product is suitable.
 If not, suggest alternatives based on healthy snacks.
