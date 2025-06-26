@@ -1,7 +1,9 @@
 # Entry point for the app
 
 import streamlit as st
-from utils import llm_agent, image_processing, voice_processing
+import sys
+sys.path.append("utils")
+import llm_agent
 
 
 '''
@@ -17,6 +19,11 @@ faiss-cpu
 
 if __name__ == '__main__':
     print('Run Streamlit or FastAPI app here')
+
+    hidden_key = input("Input the openai key:\n")
+    response = llm_agent.query_llm(hidden_key, 'other_doritos_label.png', 'other_voice_memo.m4a')
+    print(response)
+
     '''
     name = st.text_input("Name")
     if not name:

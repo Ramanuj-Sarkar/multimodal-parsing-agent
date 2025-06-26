@@ -3,14 +3,14 @@
 from langchain_openai import ChatOpenAI
 import image_processing, voice_processing
 
-text = image_processing.read_image("doritos_label.png")
-voice_command = voice_processing.process_file("voice_memo.m4a")
 
-hidden_key = input("Input the openai key:")
+def query_llm(hk, txtfile, voicefile):
+    text = image_processing.read_image(txtfile)
+    voice_command = voice_processing.process_file(voicefile)
 
-llm = ChatOpenAI(model="gpt-4", api_key=hidden_key)
+    llm = ChatOpenAI(model="gpt-4", api_key=hk)
 
-prompt = f"""
+    prompt = f"""
 Here is the text of a product label:
 {text}
 
@@ -20,7 +20,8 @@ Based on their question, determine if the product is suitable.
 If not, suggest alternatives based on healthy snacks.
 """
 
-response = llm.invoke(prompt).content
+    return llm.invoke(prompt).content
 
 if __name__ == '__main__':
-    print(response)
+    hidden_key = input("Input the openai key:")
+    print(query_llm(hidden_key, "doritos_label.png", "voice_memo.m4a"))
